@@ -163,6 +163,7 @@ class claimClass:
             "INSURANCE_STATE": claimRow[con.INSURANCE_STATE],
             "INSURANCE_ZIP": claimRow[con.INSURANCE_ZIP],
             "PLAN_GROUP_HEALTH_PLAN": claimRow[con.PLAN_GROUP_HEALTH_PLAN],
+            "INSURANCE_PAYER_ID": " ",
             "PATIENT_ID": claimRow[con.PATIENT_ID],
             "PATIENT_LAST": claimRow[con.PATIENT_LAST],
             "PATIENT_FIRST": claimRow[con.PATIENT_FIRST],
