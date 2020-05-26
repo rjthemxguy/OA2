@@ -106,7 +106,7 @@ class oaFileClass:
             self.oaTemplate.at[self.rowIndex, "DiagCodePointer" + str(self.testIndex)] = _claim[i]["DIAG_POINTER"]
 
             try:
-                self.rowTotal = self.rowTotal + _claim[i]["PRICE"]
+                self.rowTotal = self.rowTotal + int(_claim[i]["PRICE"])
 
             except:
                 print("Price Error:")

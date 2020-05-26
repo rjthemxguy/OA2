@@ -160,11 +160,11 @@ class fileClass:
     def get(self):
 
         try:
-            self.dataset = pd.read_csv("scratch/addressFixed.csv", header=None)
+            self.dataset = pd.read_csv("scratch/parsed4.csv", header=None)
             return (self.dataset)
 
         except:
             print("There is no Accessions number to run")
-            exit(10)
+            exit(200)
 
 

@@ -18,7 +18,7 @@ class summaryClass:
     def writeClaim(self, claim, diagCodes):
 
 
-        self.database.insertAccession(claim.rowList[0]["ACCESSION_NUMBER"])
+        #self.database.insertAccession(claim.rowList[0]["ACCESSION_NUMBER"])
 
         self.pdf.set_font('Arial', '', 8)
         self.pdf.set_xy(5, self.currentRow)

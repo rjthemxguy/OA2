@@ -78,10 +78,10 @@ extract.parseForMed("MEDICARE", checkFile)
 extract.parseForBlankIns("MEDICARE", checkFile)
 extract.parseForBadSubID("M", checkFile)
 extract.parseForBadAddress("M", checkFile)
-extract.parseForRan(checkFile)
+#extract.parseForRan(checkFile)
 
 # extract.openInput("051520_042420through051220_ins2.csv")
-#extract.fixAddress(checkFile)
+extract.fixAddress(checkFile)
 claims = extract.get()
 
 print(claims)
