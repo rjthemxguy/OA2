@@ -4,7 +4,6 @@ from os import system
 from colorama import init
 from colorama import Fore, Back, Style
 import globals as g
-import mysql.connector
 import DBModule as db
 import pandas as pd
 
@@ -39,7 +38,7 @@ class claimClass:
             price = database.getPrice(str(row["CPT"]))
 
             try:
-                row["PRICE"] = price[0]
+                row["PRICE"] = price
             except:
                 pass
 
