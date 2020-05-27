@@ -29,7 +29,7 @@ class summaryClass:
         self.pdf.set_xy(12, self.currentRow)
         self.pdf.cell(5, 4, str(claim.rowList[0]["ACCESSION_NUMBER"]))
         self.pdf.set_xy(38, self.currentRow)
-        self.pdf.cell(5, 4, str(claim.rowList[0]["INSURANCE_PAYER_ID"]))
+        self.pdf.cell(5, 4, str(claim.rowList[0]["PATIENT_ID"]))
         self.pdf.set_xy(70, self.currentRow)
         self.pdf.cell(5, 4, str(claim.rowList[0]["PATIENT_LAST"]))
         self.pdf.set_xy(88, self.currentRow)
