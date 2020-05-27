@@ -50,11 +50,11 @@ while True:
     if menuPress in allowableKeys:
 
         if menuPress == "1":
+            g.mode = "I"
             break
 
         if menuPress == "2":
             g.mode = "M"
-            import constantsMed as con
             break
 
         if menuPress == "3":
