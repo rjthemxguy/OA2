@@ -38,6 +38,29 @@ class fileClass:
 
                 file.close()
 
+
+    def alignAccession(self):
+        with open('scratch/cleaned.csv', 'r') as csvfile:
+            # creating a csv reader object
+            csvreader = csv.reader(csvfile)
+
+            with open('scratch/aligned.csv', "w", newline='') as result:
+                writer = csv.writer(result)
+
+                for row in csvreader:
+                    if row[con.ACCESSION_NUMBER] == "":
+                        del row[con.ACCESSION_NUMBER]
+
+                    if row[con.ACCESSION_NUMBER] == "":
+                        del row[con.ACCESSION_NUMBER]
+
+                    if row[con.ACCESSION_NUMBER] == "":
+                        del row[con.ACCESSION_NUMBER]
+
+                    writer.writerow(row)
+
+                result.close()
+
     def parseForMed(self, issue, fileName):
         with open('scratch/' + fileName, 'r') as csvfile:
             # creating a csv reader object

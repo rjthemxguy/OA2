@@ -26,6 +26,7 @@ if fileType == "Extract":
 if fileType == "Parse":
     fileToProcess = inputFile.getInput()
     extract.openInput(fileToProcess)
+    extract.alignAccession()
     print("Your parsed file is 'cleaned.csv' in the SCRATCH folder")
     exit(000)
 
