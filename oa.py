@@ -23,8 +23,11 @@ if fileType == "Extract":
     fileToProcess = inputFile.getInput()
     extract.openInput(fileToProcess)
 
-if fileType == "Check":
-    checkFile = inputFile.getCheck()
+if fileType == "Parse":
+    fileToProcess = inputFile.getInput()
+    extract.openInput(fileToProcess)
+    print("Your parsed file is 'cleaned.csv' in the SCRATCH folder")
+    exit(000)
 
 
 
@@ -35,6 +38,7 @@ print("")
 print(Fore.MAGENTA + "[1] Run a new INSURANCE extract")
 print(Fore.MAGENTA + "[2] Run a new MEDICARE extract")
 print(Fore.MAGENTA + "[3] Delete Accession Numbers")
+
 
 
 allowableKeys = ["1", "2", "3"]

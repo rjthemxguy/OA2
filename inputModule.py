@@ -50,14 +50,14 @@ class inputClass:
 
     def getFileType(self):
         system("clear")
-        print(Fore.YELLOW + "Do you want to process an [E]xtract file or [C]heck file?")
+        print(Fore.YELLOW + "Do you want to process an [E]xtract file or [P]arse a File?")
 
-        allowableKeys = ["e", "c"]
+        allowableKeys = ["e", "p"]
         while True:
             x = input()
             if x in allowableKeys:
                 if x == "e":
                     return "Extract"
-                if x == 'c':
-                    return "Check"
+                if x == 'p':
+                    return "Parse"
 
