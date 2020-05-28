@@ -23,11 +23,18 @@ if fileType == "Extract":
     fileToProcess = inputFile.getInput()
     extract.openInput(fileToProcess)
 
-if fileType == "Parse":
+if fileType == "Parse Medi":
     fileToProcess = inputFile.getInput()
     extract.openInput(fileToProcess)
     extract.alignAccessionMedi()
-    print("Your parsed file is 'cleaned.csv' in the SCRATCH folder")
+    print("Your parsed MEDI file is 'cleaned.csv' in the SCRATCH folder")
+    exit(000)
+
+if fileType == "Parse Ins":
+    fileToProcess = inputFile.getInput()
+    extract.openInput(fileToProcess)
+    extract.alignAccession()
+    print("Your parsed INSURANCE file is 'cleaned.csv' in the SCRATCH folder")
     exit(000)
 
 
