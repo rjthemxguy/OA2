@@ -31,12 +31,10 @@ class database_class:
         cur.execute("SELECT price FROM comp WHERE hcpcs=? LIMIT 1", (CPT,))
 
         rows = cur.fetchone()
-        print(CPT)
-        print(rows)
+
         if len(rows) == 1:
             price = rows[0]
-            print(CPT)
-            print(price)
+
         else:
             price = rows
 

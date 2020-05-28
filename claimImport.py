@@ -193,7 +193,7 @@ class claimClass:
             "DIAG_12": claimRow[con.DIAG_12],
             "FROM_DATE_SERVICE": claimRow[con.FROM_DATE_SERVICE],
             "TO_DATE_SERVICE": claimRow[con.TO_DATE_SERVICE],
-            "CPT": claimRow[con.CPT],
+            "CPT": str(claimRow[con.CPT]),
             "EMG": claimRow[con.EMG],
             "PRICE": "",
             "REFER_PHY_ID": claimRow[con.REFER_PHY_ID],
@@ -239,6 +239,109 @@ class claimClass:
             self.diagCodeList.append(self.rowList[0]["DIAG_12"])
 
     def checkForLab(self, labCode):
+
+        if labCode == "ESR":
+
+            emgCount = 0
+
+            for lp2_claim in self.rowList:
+
+                if "85652" in lp2_claim.values():
+                    CPT1 = lp2_claim
+                    CPT1["EMG"] = "---"
+                    CPT1["CPT"] = "85651"
+                    break
+
+        if labCode == "80050-1":
+
+            emgCount = 0
+
+            for lp2_claim in self.rowList:
+
+                if "80048" in lp2_claim.values():
+                    emgCount += 1
+                    CPT1 = lp2_claim
+
+                if "84443" in lp2_claim.values():
+                    emgCount += 1
+                    CPT2 = lp2_claim
+
+                if "85025" in lp2_claim.values():
+                    emgCount += 1
+                    CPT3 = lp2_claim
+
+                if "80076" in lp2_claim.values():
+                    emgCount += 1
+                    CPT4 = lp2_claim
+
+                if emgCount == 4:
+                    print("All Four")
+                    self.rowList.remove(CPT1)
+                    self.rowList.remove(CPT2)
+                    CPT3["CPT"] = "80050"
+                    CPT3["EMG"] = "GHP"
+                    CPT4["CPT"] = "82248"
+                    CPT4["EMG"] = "DBIL"
+                    break
+
+        if labCode == "80050-2":
+
+            emgCount = 0
+
+
+            for lp2_claim in self.rowList:
+
+                if "80053" in lp2_claim.values():
+                    emgCount += 1
+                    CPT1 = lp2_claim
+
+                if "84443" in lp2_claim.values():
+                    emgCount += 1
+                    CPT2 = lp2_claim
+
+                if "85025" in lp2_claim.values():
+                    emgCount += 1
+                    CPT3 = lp2_claim
+
+
+                if emgCount == 3:
+                    print("ALL THREE")
+                    self.rowList.remove(CPT1)
+                    CPT2["CPT"] = "82248"
+                    CPT2["EMG"] = "DBIL"
+                    CPT3["CPT"] = "80050"
+                    CPT3["EMG"] = "GHP"
+                    break
+
+        if labCode == "80050-3":
+
+            emgCount = 0
+
+
+            for lp2_claim in self.rowList:
+
+                if "80048" in lp2_claim.values():
+                    emgCount += 1
+                    CPT1 = lp2_claim
+
+                if "84443" in lp2_claim.values():
+                    emgCount += 1
+                    CPT2 = lp2_claim
+
+                if "85025" in lp2_claim.values():
+                    emgCount += 1
+                    CPT3 = lp2_claim
+
+
+                if emgCount == 3:
+                    print("ALL THREE #2")
+                    self.rowList.remove(CPT1)
+                    CPT2["CPT"] = "82248"
+                    CPT2["EMG"] = "DBIL"
+                    CPT3["CPT"] = "80050"
+                    CPT3["EMG"] = "GHP"
+                    break
+
 
         if labCode == "LP2":
 
