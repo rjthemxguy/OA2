@@ -135,6 +135,24 @@ class fileClass:
                     row[65] = row[64]
                     row[64] = ""
 
+                    row[83] = row[82]
+                    row[82] = row[81]
+                    row[81] = row[80]
+                    row[80] = row[79]
+                    row[79] = row[78]
+                    row[78] = row[77]
+                    row[77] = row[76]
+                    row[76] = row[75]
+                    row[75] = row[74]
+                    row[74] = ""
+
+                    row[96] = row[95]
+                    row[95] = row[94]
+                    row[94] = row[93]
+                    row[93] = row[92]
+                    row[92] = row[91]
+                    row[91] = ""
+
                     if row[con.ACCESSION_NUMBER] == "":
                         if row[con.ACCESSION_NUMBER - 1] != "":
                             row[con.ACCESSION_NUMBER] = row[con.ACCESSION_NUMBER - 1]
