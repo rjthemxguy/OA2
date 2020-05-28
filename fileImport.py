@@ -114,10 +114,36 @@ class fileClass:
                         row[91] = row[90]
                         row[90] = ""
 
+                    row[20] = row[19]
+                    row[19] = row[18]
+                    row[18] = row[17]
+                    row[17] = row[16]
+                    row[16] = row[15]
+                    row[15] = row[9]
+                    row[9] = ""
+
+                    row[28] = row[27]
+                    row[27] = row[26]
+                    row[26] = row[25]
+                    row[25] = row[24]
+                    row[24] = row[23]
+                    row[23] = ""
+
+                    row[68] = row[67]
+                    row[67] = row[66]
+                    row[66] = row[65]
+                    row[65] = row[64]
+                    row[64] = ""
+
                     if row[con.ACCESSION_NUMBER] == "":
                         if row[con.ACCESSION_NUMBER - 1] != "":
                             row[con.ACCESSION_NUMBER] = row[con.ACCESSION_NUMBER - 1]
                             row[con.ACCESSION_NUMBER - 1] = ""
+
+                        if row[con.ACCESSION_NUMBER] == "":
+                            if row[con.ACCESSION_NUMBER - 2] != "":
+                                row[con.ACCESSION_NUMBER] = row[con.ACCESSION_NUMBER - 2]
+                                row[con.ACCESSION_NUMBER - 2] = ""
 
                         try:
                             if row[con.ACCESSION_NUMBER + 1] != "":
