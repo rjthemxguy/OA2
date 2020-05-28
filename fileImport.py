@@ -61,6 +61,83 @@ class fileClass:
 
                 result.close()
 
+    def alignAccessionMedi(self):
+        with open('scratch/cleaned.csv', 'r') as csvfile:
+            # creating a csv reader object
+            csvreader = csv.reader(csvfile)
+
+            with open('scratch/aligned.csv', "w", newline='') as result:
+                writer = csv.writer(result)
+
+                for row in csvreader:
+
+                    if self.__numIn(row[24]):
+                        row[23] = row[23] + row[24]
+                        del row[24]
+
+                    if self.__numIn(row[30]):
+                        row[29] = row[29] + row[30]
+                        del row[30]
+
+                    if "APT" in row[24]:
+                        row[23] = row[23] + row[24]
+                        del row[24]
+
+                    if "APT" in row[30]:
+                        row[29] = row[29] + row[30]
+                        del row[30]
+
+                    if row[68] != "":
+                        row[67] = row[68]
+                        row[68] = ""
+
+                    if row[75] == "":
+                        del row[75]
+
+                    if row[74] != "":
+                        row[83] = row[82]
+                        row[82] = row[81]
+                        row[81] = row[80]
+                        row[80] = row[79]
+                        row[79] = row[78]
+                        row[78] = row[77]
+                        row[77] = row[76]
+                        row[76] = row[75]
+                        row[75] = row[74]
+                        row[74] = ""
+
+                    if row[90] != "":
+                        row[95] = row[94]
+                        row[94] = row[93]
+                        row[93] = row[92]
+                        row[92] = row[91]
+                        row[91] = row[90]
+                        row[90] = ""
+
+                    if row[con.ACCESSION_NUMBER] == "":
+                        if row[con.ACCESSION_NUMBER - 1] != "":
+                            row[con.ACCESSION_NUMBER] = row[con.ACCESSION_NUMBER - 1]
+                            row[con.ACCESSION_NUMBER - 1] = ""
+
+                        try:
+                            if row[con.ACCESSION_NUMBER + 1] != "":
+                                row[con.ACCESSION_NUMBER] = row[con.ACCESSION_NUMBER + 1]
+                                row[con.ACCESSION_NUMBER + 1] = ""
+                        except:
+                            pass
+
+                        try:
+                            if row[con.ACCESSION_NUMBER + 2] != "":
+                                row[con.ACCESSION_NUMBER] = row[con.ACCESSION_NUMBER + 2]
+                                row[con.ACCESSION_NUMBER + 2] = ""
+                        except:
+                            pass
+
+
+                    writer.writerow(row)
+
+                result.close()
+
     def parseForMed(self, issue, fileName):
         with open('scratch/' + fileName, 'r') as csvfile:
             # creating a csv reader object
