@@ -142,12 +142,17 @@ for claim in claimList:
     # claim.setMedicare()
     claim.checkForLab("LP2")
     claim.checkForLab("LP")
+    claim.checkForLab("ESR")
 
     if g.mode == "I":
         claim.checkForLab("80050-1")
         claim.checkForLab("80050-2")
         claim.checkForLab("80050-3")
-        claim.checkForLab("ESR")
+
+    if g.mode == "M":
+        claim.checkForLab("BMP-HFP")
+
+
 
     claim.getDiagCodes()
     claim.loadPrices()

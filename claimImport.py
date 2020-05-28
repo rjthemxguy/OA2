@@ -313,6 +313,29 @@ class claimClass:
                     CPT3["EMG"] = "GHP"
                     break
 
+        if labCode == "BMP-HFP":
+
+            emgCount = 0
+
+            for lp2_claim in self.rowList:
+
+                if "80048" in lp2_claim.values():
+                    emgCount += 1
+                    CPT1 = lp2_claim
+
+                if "80076" in lp2_claim.values():
+                    emgCount += 1
+                    CPT2 = lp2_claim
+
+
+                if emgCount == 2:
+                    print("Got Two")
+                    CPT1["CPT"] = "80053"
+                    CPT1["EMG"] = "CMP"
+                    CPT2["CPT"] = "82248"
+                    CPT2["EMG"] = "DBIL"
+                    break
+
         if labCode == "80050-3":
 
             emgCount = 0
@@ -358,8 +381,9 @@ class claimClass:
                     LDLD = lp2_claim
 
                 if emgCount == 2:
-                    lp2_claim.remove(LP)
+                    self.rowList.remove(LP)
                     LDLD["EMG"] = "LP2"
+                    LDLD["CPT"] = "83721"
                     break
 
         if labCode == "LP":
