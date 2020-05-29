@@ -74,6 +74,11 @@ class summaryClass:
         self.currentRow += 2
 
         self.pdf.set_xy(15, self.currentRow)
+        self.pdf.cell(5, 4, "From DOS: " + claim.rowList[0]["FROM_DATE_SERVICE"])
+        self.pdf.set_xy(50, self.currentRow)
+        self.pdf.cell(5, 4, "To DOS: " + claim.rowList[0]["TO_DATE_SERVICE"])
+        self.currentRow += 5
+        self.pdf.set_xy(15, self.currentRow)
         self.pdf.cell(5, 4, "Diagnosis Codes:")
 
 
