@@ -144,7 +144,7 @@ claimsProcessed = 1
 
 
 for claim in claimList:
-
+    print("HE")
 
     # claim.setMedicare()
     claim.checkForLab("LP2")

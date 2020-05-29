@@ -98,6 +98,7 @@ class summaryClass:
         self.pdf.line(5, self.currentRow, 280, self.currentRow)
         self.currentRow += 3
 
+        claimTotal = 0
 
         for row in claim.rowList:
             self.pdf.set_xy(15, self.currentRow)
@@ -107,7 +108,10 @@ class summaryClass:
             self.pdf.set_xy(55, self.currentRow)
             self.pdf.cell(5, 4, str(row["PRICE"]))
 
+            claimTotal = claimTotal + int(row["PRICE"])
+
             self.currentRow += 5
+
 
             if self.pdf.get_y() > 155:
 
@@ -115,8 +119,10 @@ class summaryClass:
                 self.pdf.set_xy(5, 10)
                 self.currentRow = 5
 
+        self.currentRow += 5
 
-
+        self.pdf.set_xy(35,self.currentRow)
+        self.pdf.cell(5, 4, "Claim Total: " + str(claimTotal))
         self.currentRow += 10
         self.claimCount += 1
 
