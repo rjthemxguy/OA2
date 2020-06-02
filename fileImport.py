@@ -33,7 +33,7 @@ class fileClass:
 
             fileData = fileData.replace('"', '')
 
-            with open('scratch/readIns.csv', 'w') as file:
+            with open('scratch/cleaned.csv', 'w') as file:
                 file.write(fileData)
 
                 file.close()
