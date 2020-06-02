@@ -1,4 +1,5 @@
 import pandas as pd
+import globals as g
 
 
 
@@ -19,7 +20,10 @@ class oaFileClass:
         self.oaTemplate.at[self.rowIndex, "InsuranceState"] = _claim[0]["INSURANCE_STATE"]
         self.oaTemplate.at[self.rowIndex, "InsuranceZip"] = _claim[0]["INSURANCE_ZIP"]
         self.oaTemplate.at[self.rowIndex, "InsuranceCityStateZip"] = str(_claim[0]["INSURANCE_CITY"]) + " " + str(_claim[0]["INSURANCE_STATE"]) + " " + str(_claim[0]["INSURANCE_ZIP"])
-        self.oaTemplate.at[self.rowIndex, "PlanGroupHealthPlan"] = "1"
+        if g.mode == "M":
+            self.oaTemplate.at[self.rowIndex, "PlanMedicare"] = "1"
+        else:
+            self.oaTemplate.at[self.rowIndex, "PlanGroupHealthPlan"] = "1"
         self.oaTemplate.at[self.rowIndex, "PatientID"] = _claim[0]["PATIENT_ID"]
         self.oaTemplate.at[self.rowIndex, "PatientLast"] = _claim[0]["PATIENT_LAST"]
         self.oaTemplate.at[self.rowIndex, "InsuredLast"] = _claim[0]["PATIENT_LAST"]
