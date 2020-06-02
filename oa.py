@@ -166,7 +166,7 @@ for claim in claimList:
 
     if g.processDiagCodes == True:
         claim.setDaigCodes(numOfClaims, claimsProcessed)
-        if g.mode == "M":
+        if g.mode == "I":
             claim.getInsInfo(numOfClaims, claimsProcessed)
 
     oaFile.writeTestBlock(claim.rowList, claim.diagCodeList)
