@@ -50,6 +50,7 @@ class oaFileClass:
         self.oaTemplate.at[self.rowIndex, "PhysicianSignature"] = "Signature on File"
         self.oaTemplate.at[self.rowIndex, "PhysicianSignatureDate"] = _claim[0]["TO_DATE_SERVICE"]
         self.oaTemplate.at[self.rowIndex, "PhysicianLast"] = "Prime Clinical"
+        self.oaTemplate.at[self.rowIndex, "HCFACLIANumber"] = "05D1019911"
         self.oaTemplate.at[self.rowIndex, "PhysicianFirst"] = "Lab"
         self.oaTemplate.at[self.rowIndex, "FacilityName"] = "Prime Clinical Lab"
         self.oaTemplate.at[self.rowIndex, "FacilityStreetAddr"] = "27825 Fremont Ct"
