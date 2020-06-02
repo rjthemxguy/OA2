@@ -33,7 +33,7 @@ class fileClass:
 
             fileData = fileData.replace('"', '')
 
-            with open('scratch/cleaned.csv', 'w') as file:
+            with open('scratch/readIns.csv', 'w') as file:
                 file.write(fileData)
 
                 file.close()
@@ -48,6 +48,11 @@ class fileClass:
                 writer = csv.writer(result)
 
                 for row in csvreader:
+
+                    if "SUITE" in row[335]:
+                        row[334] = row[334] + row[335]
+                        del row[335]
+
                     if row[con.ACCESSION_NUMBER] == "":
                         del row[con.ACCESSION_NUMBER]
 
@@ -303,12 +308,10 @@ class fileClass:
 
     def get(self):
 
-        try:
-            self.dataset = pd.read_csv("scratch/parsed4.csv", header=None)
-            return (self.dataset)
+        self.dataset = pd.read_csv("input/" + g.fileToOpen, header=None)
+        return (self.dataset)
 
-        except:
-            print("There is no Accessions number to run")
-            exit(200)
+        print("There is no Accessions number to run")
+        exit(200)
 
 

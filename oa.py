@@ -20,8 +20,8 @@ extract = f.fileClass()
 fileType = inputFile.getFileType()
 
 if fileType == "Extract":
-    fileToProcess = inputFile.getInput()
-    extract.openInput(fileToProcess)
+    g.fileToOpen = inputFile.getInput()
+    #extract.openInput(fileToProcess)
 
 if fileType == "Parse Medi":
     fileToProcess = inputFile.getInput()
@@ -86,10 +86,10 @@ while True:
     else:
         continue
 
-extract.parseForMed("MEDICARE", checkFile)
-extract.parseForBlankIns("MEDICARE", checkFile)
-extract.parseForBadSubID("M", checkFile)
-extract.parseForBadAddress("M", checkFile)
+#extract.parseForMed("MEDICARE", checkFile)
+#extract.parseForBlankIns("MEDICARE", checkFile)
+#extract.parseForBadSubID("M", checkFile)
+#extract.parseForBadAddress("M", checkFile)
 #extract.parseForRan(checkFile)
 
 # extract.openInput("051520_042420through051220_ins2.csv")
